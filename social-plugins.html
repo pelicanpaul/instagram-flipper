@@ -1,0 +1,83 @@
+﻿<!DOCTYPE HTML>
+<html lang="en" >
+<head>
+    <title>Social Plugins - Paul Lyons</title>
+    <link href='http://fonts.googleapis.com/css?family=Arimo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="css/base.css"  />
+
+    <!--social styles-->
+    <link rel="stylesheet" type="text/css" href="css/style-social-widgets.css"  />
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script
+
+    <!--get social data-->
+    <script type="text/javascript" src="js/jquery.instagram.js"></script>
+    <script type="text/javascript" src="js/jquery.monstertweet.js"></script>
+
+    <!--call monster social plugin-->
+    <script type="text/javascript" src="js/jquery.monstersocial.js"></script>
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+			
+			// instagram 
+            $("#instagram").instagram('getStream', {
+                count: 30,
+                getUser: true,
+                user: 305630630 // App Annie 1382174565 // OB 18441914
+            });
+
+            $("#instagram").monsterSocial({
+                displayType: 'instagram',
+                moveAllVisible: true
+            });
+
+
+          
+        });
+
+	</script>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+
+</head>
+
+   
+<body>
+
+         <h1>SOCIAL PLUG-INS</h1>
+
+         <h2>Instagram</h2>
+
+         <div class="wrapper-main">
+
+             <div class="wrapper-section-full social">
+                 <div class="section-full-inner wrapper-instagram">
+                     <div class="prev-set prev-set-instagram rsArrow rsArrowLeft"><div class="rsArrowIcn"></div></div>
+                     <div class="indicator-social"><img src="images/ajax-loader.gif"  /></div>
+                     <div id="instagram"></div>
+                     <div class="next-set next-set-instagram rsArrow rsArrowRight"><div class="rsArrowIcn"></div></div>
+                 </div>
+             </div>
+
+         </div>
+
+        <h4>Example of Social Widgets with custom jQuery PlugIn  - by Paul Lyons</h4>
+
+
+<div class="notes">
+    <h5>Code files of interest:</h5>
+
+    <ul class="list-indent">
+       <li><a href="css/style-social-widgets.css">css/style-social-widgets.css</a><br />
+       CSS3 transistions, transforms and other cool stuff</li>
+       <li><a href="js/jquery.monstersocial.js">js/jquery.monstersocial.js</a><br />
+           PlugIn with options to display Twitter, Instagram, Facebook and Video feeds.</li>
+
+    </ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+
+/*
+Author: Paul Lyons
+Description: Demonstrates some CSS3 uses with data coming from an Instagram feed.
+*/
+
+
+/*basic styles and bootstrap overrides*/
+
+body {
+    background-color: #ededed;
+}
+
+.container-instagram {
+    padding: 30px 15px;
+}
+
+#photosets {
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    display: block;
+    font-size: 16px;
+    height: 50px;
+    line-height: 1.42857;
+    padding: 12px 24px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+}
+
+#instagram {
+    height: 310px;
+    width: auto;
+    position: relative;
+    max-width: 940px;
+    margin: 0 auto;
+    text-align: center;
+    display: table;
+}
+
+/* centered columns styles */
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+
+/* styles hidden in js*/
+
+.wrapper-instagram {
+    overflow: hidden;
+    position: relative;
+    height: 310px
+}
+
+/* front pane, placed above back */
+.instagram-image {
+    width: 300px;
+    height: 300px;
+}
+
+.instagram-pic {
+    z-index: 2;
+    background-size: cover;
+    visibility: hidden;
+    transform: rotateY(0deg);
+}
+
+.instagram-pic-show {
+    visibility: visible;
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -moz-animation: fadein 2s; /* Firefox */
+    -ms-animation: fadein 2s; /* Internet Explorer */
+    -o-animation: fadein 2s; /* Opera */
+    animation: fadein 2s;
+}
+
+.instagram-record a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.loading {
+    color: #fff;
+    font-size: 32px;
+}
+
+/* flip-container instagram photo and CSS3 transforms */
+
+.flip-container, .instagram-caption {
+    width: 300px;
+    height: 300px;
+}
+
+/* entire container, keeps perspective */
+.flip-container {
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    perspective: 1000;
+    float: left;
+    margin: 0 10px 10px 0;
+}
+
+/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+.flip-container, .instagram-pic {
+    width: 300px;
+    height: 300px;
+}
+
+/* flip speed goes here */
+.flipper {
+    -webkit-transition: 0.6s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transition: 0.6s;
+    -moz-transform-style: preserve-3d;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+/* hide back of pane during swap */
+.instagram-pic, .instagram-caption {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* front pane, placed above back */
+.instagram-pic {
+    z-index: 2;
+    background-size: cover;
+    visibility: hidden;
+}
+
+/* back, initially hidden pane */
+.instagram-caption {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    color: #fff;
+    width: 300px;
+    height: 300px;
+    padding: 50px;
+    /*background-color: #198683;*/
+    background-image:url(../images/insta_bg.jpg);
+    font-size: 12px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.instagram-pic-show {
+    visibility: visible;
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -moz-animation: fadein 2s; /* Firefox */
+    -ms-animation: fadein 2s; /* Internet Explorer */
+    -o-animation: fadein 2s; /* Opera */
+    animation: fadein 2s;
+}
+
+.icon-social {
+    opacity: 0.9;
+    margin: 0 0 0 0;
+}
+
+.icon-social-misc {
+    opacity: 0.5;
+    margin: 0 4px 0 10px;
+}
+
+
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Firefox */
+@-moz-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+@media all and (max-width: 800px){
+
+    .flip-container {
+        text-align:center;
+        float:none;
+    }
+
+}
